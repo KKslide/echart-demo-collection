@@ -10,14 +10,36 @@ body{
         }
         #fxxxxxxk{
             //  将底部边距消除
-            .el-form-item{
-                margin-bottom: 0;
-            }
-            .el-form-item__label:first-child{
-                // height: 35px;
-            }
-            .el-form-item__content{
-                height: 30px;
+            .el-form{
+                background-color: rgb(255, 255, 255);
+                padding: 0px 10px;
+                margin: 0px 5px;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                .el-form-item{
+                    margin-bottom: 0;
+                    height: 30px;
+                }
+                .el-form-item.form_date{
+                    .el-form-item__content{
+                        margin-left: 0 !important;
+                        .form_date_content{
+                            font-size: 18px;
+                        }
+                    }
+                }
+                .el-form-item__label{
+                    height:30px;
+                    line-height: 30px;
+                }
+                .el-form-item__content{
+                    height: 30px;
+                    line-height: 30px;
+                    .el-select{
+                        line-height: inherit;
+                    }
+                }
             }
         }
     }

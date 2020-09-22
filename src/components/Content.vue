@@ -6,10 +6,12 @@
       <el-breadcrumb-item>广州市</el-breadcrumb-item>
     </el-breadcrumb>
     <el-container id="fxxxxxxk" direction="vertical" style="height:85vh;margin:15px;">
-      <el-row style="height:42vh;margin-bottom:10px">
-        <el-col :span="8" style="height:21vh;">
-          <el-form style="background-color:#fff;padding:0 10px;margin:0 5px;">
-            <el-form-item :label="currentTime"></el-form-item>
+      <el-row style="height:42.5vh;margin-bottom:10px">
+        <el-col :span="8" style="height:21.25vh;">
+          <el-form style="height:21.25vh;background-color:#fff;padding:0px 10px 8px 10px;margin:0 5px;" label-position="left" label-width="80px">
+            <el-form-item class="form_date">
+				<div class="form_date_content" v-html="currentTime"></div>
+			</el-form-item>
             <el-form-item label="时间范围">
               <el-select v-model="pickedTime" placeholder="请选择" size="mini">
                 <el-option
@@ -40,7 +42,7 @@
                 ></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="厂商">
+            <el-form-item label="厂商" v-if="true">
               <el-select v-model="pickedCompany" placeholder="请选择" size="mini">
                 <el-option
                   v-for="item in companyList"
@@ -51,7 +53,7 @@
               </el-select>
             </el-form-item>
           </el-form>
-          <el-col :span="8" style="height:21vh;width:50%; padding:8px 5px 0px 5px;">
+          <el-col :span="8" style="height:21.25vh;width:50%; padding:8px 5px 0px 5px;">
             <div class="normal_part">
               <div class="normal_part_title">平均提前预测重要警告时间</div>
               <div class="normal_part_data">
@@ -60,7 +62,7 @@
               </div>
             </div>
           </el-col>
-          <el-col :span="8" style="height:21vh;width:50%; padding:8px 5px 0px 5px;">
+          <el-col :span="8" style="height:21.25vh;width:50%; padding:8px 5px 0px 5px;">
             <div class="normal_part">
               <div class="normal_part_title">精确率</div>
               <div class="normal_part_data blue">
@@ -72,13 +74,13 @@
         </el-col>
 
         <el-col :span="9" style="height:100%">
-			<map-com></map-com>
-		</el-col>
+          <map-com></map-com>
+        </el-col>
         <el-col :span="7" style="height:100%">
           <div class="normal_part city_table">
             <div class="city_table_title">城市详情列表</div>
             <div class="city_table_list">
-              <el-table :data="cityList" height="33vh" border style="width: 100%" >
+              <el-table :data="cityList" height="33vh" border style="width: 100%">
                 <el-table-column prop="name" label="城市"></el-table-column>
                 <el-table-column prop="value" label="精准率"></el-table-column>
               </el-table>
@@ -87,7 +89,7 @@
         </el-col>
       </el-row>
       <!-- ********************************************************************* -->
-      <el-row style="height:42vh">
+      <el-row style="height:42.5vh">
         <el-col :span="8" style="height:100%">
           <el-col :span="8" style="height:21vh;width:50%; padding:5px">
             <div class="normal_part">
@@ -118,8 +120,8 @@
           </el-col>
         </el-col>
         <el-col :span="16" style="height:100%;padding:5px 0 5px 5px">
-			<line-com></line-com>
-		</el-col>
+          <line-com></line-com>
+        </el-col>
       </el-row>
     </el-container>
   </div>
@@ -127,8 +129,8 @@
 
 <script>
 import { dateFormat } from "../utils/timeUtil"; // 时间格式化
-import mapCom from './mapCom/Map' // 引入地图echart组件
-import lineCom from './mapCom/Line' // 引入地图echart组件
+import mapCom from "./mapCom/Map"; // 引入地图echart组件
+import lineCom from "./mapCom/Line"; // 引入地图echart组件
 export default {
   name: "fucking_big_screen",
   data() {
@@ -170,13 +172,11 @@ export default {
       ],
     };
   },
-  components:{
-	  'map-com':mapCom,
-	  'line-com':lineCom
+  components: {
+    "map-com": mapCom,
+    "line-com": lineCom,
   },
-  mounted() {
-
-  },
+  mounted() {},
 };
 </script>
 
@@ -197,8 +197,8 @@ export default {
     }
     .normal_part_data {
       color: #479c96;
-	  position: absolute;
-	  width:100%;
+      position: absolute;
+      width: 100%;
       left: 50%;
       top: 50%;
       transform: translate(-50%, 20%);
@@ -215,14 +215,15 @@ export default {
       }
     }
   }
-  .normal_part.city_table{
-	  padding: 0 10px;
-	  background-color: #fff;
-	  .city_table_title{
-		  text-align: left;
-		  padding: 20px 0;
-	  }
-	  .city_table_list{}
+  .normal_part.city_table {
+    padding: 0 10px;
+    background-color: #fff;
+    .city_table_title {
+      text-align: left;
+      padding: 20px 0;
+    }
+    .city_table_list {
+    }
   }
 }
 </style>

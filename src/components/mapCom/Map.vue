@@ -33,8 +33,6 @@ export default {
         // 宿迁市: [118.275162, 33.963008],
       };
 
-      console.log(mapData);
-
       let tempArr = mapData.features.map(v=>{
           return v.properties.name
       });
@@ -48,8 +46,6 @@ export default {
       })
 
       center= temObj; 
-
-      console.log(center);
 
       let option = {
         visualMap: {
