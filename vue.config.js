@@ -6,9 +6,7 @@ const path = require("path")
 //     : 'http://127.0.0.1:80' // 生产
 
 module.exports = {
-    // publicPath: process.env.NODE_ENV === 'production'
-    //     ? 'http://134.175.129.219'  // 开发
-    //     : 'http://127.0.0.1:8080', // 生产
+    // publicPath: proxyUrl
     outputDir: './dist',
     assetsDir: './', //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
     indexPath: 'index.html', //指定生成的 index.html 的输出路径 (相对于 outputDir)。也可以是一个绝对路径。
@@ -23,18 +21,6 @@ module.exports = {
         //         changeOrigin: true,
         //         target: proxyUrl
         //     },
-        //     '/index/*': {
-        //         changeOrigin: true,
-        //         target: proxyUrl
-        //     },
-        //     '/admin/*': {
-        //         changeOrigin: true,
-        //         target: proxyUrl
-        //     },
-        //     '/pic/*': {
-        //         changeOrigin: true,
-        //         target: proxyUrl
-        //     },
         // },
         port: 8090, // 端口号
     },
@@ -44,19 +30,9 @@ module.exports = {
         // ]
         // 把原本需要写在webpack.config.js中的配置代码 写在这里 会自动合并
         externals: {
-            // 'jquery': '$',
-            // 'bootstrap': 'bootstrap',
-            // 'axios': 'axios',
             'vue': 'Vue',
             'element-ui': 'element-ui',
-            // 'jquery': 'jQuery',
-            // 'Typed': 'typed.js',
-            // 'qs': 'qs',
-            // 'vue-router': 'VueRouter',
-            // 'VueI18n': 'vue-i18n', // 翻译插件
             'echarts': 'echarts',
-            // 'video.js': 'videojs',
-            // 'videojs-contrib-hls.js': 'videojs-contrib-hls'
         }
     },
     chainWebpack: config => {
